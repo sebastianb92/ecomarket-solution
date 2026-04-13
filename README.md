@@ -1,45 +1,38 @@
-# 🌿 EcoMarket AI Support — Taller Práctico #1
+# EcoMarket AI Support — Taller Práctico #1
 
 Sistema de atención al cliente basado en **IA Generativa** para EcoMarket, una empresa de e-commerce sostenible.
 
-## 📋 Descripción
+## Descripción
 
 Este repositorio implementa la solución propuesta en el Taller Práctico #1, demostrando cómo la ingeniería de prompts puede transformar la atención al cliente automatizando el 80% de consultas repetitivas mediante un modelo LLM open-source con contexto RAG simulado.
 
-**Modelo utilizado:** `llama3-8b-8192` via [Groq API](https://groq.com) (gratuita)  
-**Alternativa local:** Ollama con `mistral:7b-instruct` (sin internet)
+**Modelo utilizado:** `llama-3.3-70b-versatile` via [Groq API](https://groq.com)
 
 ---
 
-## 🗂️ Estructura del Repositorio
+## Estructura del Repositorio
 
 ```
-ecomarket-ai-support/
+ecomarket-solution/
 ├── README.md
 ├── requirements.txt
-├── .env.example
+├── docs/
+│   ├── fase1_modelo.md
+│   ├── fase2_analisis.md
+│   └── fase3_prompting.md
 │
-├── fase1_modelo/
-│   └── justificacion.md          # Justificación del modelo de IA seleccionado
+├── prompts/
+│   ├── system_prompt.txt
+│   ├── order_status_prompt.txt
+│   └── return_policy_prompt.txt
 │
-├── fase2_evaluacion/
-│   └── riesgos_fortalezas.md     # Fortalezas, limitaciones y riesgos éticos
+├── data/
+│   ├── orders.json
+│   └── policies.txt
 │
-├── fase3_prompts/
-│   ├── config.py                 # Configuración centralizada
-│   ├── data/
-│   │   ├── orders_database.txt   # Base de datos de 10 pedidos de prueba
-│   │   └── return_policy.txt     # Política de devoluciones de EcoMarket
-│   ├── prompts/
-│   │   ├── __init__.py
-│   │   ├── system_prompts.py     # System prompts del agente EcoBot
-│   │   ├── order_status.py       # Lógica y prompt de estado de pedido
-│   │   └── return_request.py     # Lógica y prompt de devoluciones
-│   └── main.py                   # Script principal de demostración
-│
-└── tests/
-    ├── test_order_prompt.py      # Casos de prueba para pedidos
-    └── test_return_prompt.py     # Casos de prueba para devoluciones
+├── notebooks/
+│   └── demo_prompting.ipynb
+
 ```
 
 ---
@@ -127,18 +120,6 @@ python tests/test_return_prompt.py
 
 ---
 
-## 🔄 Alternativa: Uso con Ollama (sin API key, 100% local)
-
-```bash
-# 1. Instalar Ollama desde https://ollama.com
-# 2. Descargar el modelo
-ollama pull mistral:7b-instruct
-
-# 3. Cambiar en .env:
-LLM_PROVIDER=ollama
-OLLAMA_MODEL=mistral:7b-instruct
-```
-
 ---
 
 ## 📊 Casos de prueba incluidos
@@ -172,10 +153,3 @@ Consulta del cliente
 
 En este prototipo, el **RAG está simulado** mediante la carga directa de los archivos de texto en `fase3_prompts/data/`. En producción, estos datos serían recuperados dinámicamente desde las APIs de EcoMarket.
 
----
-
-## 📚 Fases del taller
-
-- [Fase 1 — Justificación del modelo](fase1_modelo/justificacion.md)
-- [Fase 2 — Fortalezas, limitaciones y riesgos éticos](fase2_evaluacion/riesgos_fortalezas.md)
-- Fase 3 — Ingeniería de prompts (este directorio)
