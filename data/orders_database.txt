@@ -1,0 +1,98 @@
+PEDIDO #ECO-12345
+  Cliente: María García
+  Estado: EN TRÁNSITO
+  Producto: Kit de bambú reutilizable (3 piezas)
+  Fecha de pedido: 2024-07-01
+  Entrega estimada: 2024-07-05
+  Transportista: DHL Express
+  tracking_url: https://track.dhl.com/ECO12345
+  Notas: Sin retrasos reportados. Último punto de control: Centro logístico Madrid.
+
+PEDIDO #ECO-12346
+  Cliente: Carlos López
+  Estado: RETRASADO
+  Producto: Jabón orgánico artesanal (pack x6)
+  Fecha de pedido: 2024-06-28
+  Entrega original: 2024-07-02
+  Nueva entrega estimada: 2024-07-08
+  Razón del retraso: Huelga de transporte regional en Cataluña
+  Transportista: Correos
+  tracking_url: https://track.correos.es/ECO12346
+  Notas: EcoMarket ofrece disculpas por las molestias ocasionadas.
+
+PEDIDO #ECO-12347
+  Cliente: Ana Martínez
+  Estado: ENTREGADO
+  Producto: Botella de acero inoxidable 750ml
+  Fecha de pedido: 2024-06-20
+  Entregado: 2024-06-25 a las 14:32h
+  Firmó la entrega: Sí (firma digital registrada)
+  tracking_url: https://track.seur.com/ECO12347
+  Notas: Entrega exitosa en dirección principal.
+
+PEDIDO #ECO-12348
+  Cliente: Luis Fernández
+  Estado: PROCESANDO
+  Producto: Set de cubiertos de bambú
+  Fecha de pedido: 2024-07-03
+  Entrega estimada: 2024-07-09
+  tracking_url: No disponible aún (se enviará por email cuando el pedido sea despachado)
+  Notas: Pendiente verificación de stock por alta demanda. El equipo de almacén está trabajando en ello.
+
+PEDIDO #ECO-12349
+  Cliente: Sofia Ruiz
+  Estado: CANCELADO
+  Producto: Cepillo de dientes de bambú (pack x4)
+  Fecha de cancelación: 2024-07-01
+  Motivo: Solicitud del cliente
+  Reembolso: Procesado el 2024-07-02
+  Plazo de reembolso: 5-7 días hábiles a la tarjeta original terminada en ****4521
+  Notas: Cancelación procesada correctamente. El cliente recibirá confirmación por email.
+
+PEDIDO #ECO-12350
+  Cliente: Jorge Romero
+  Estado: EN TRÁNSITO
+  Producto: Bolsas de tela reutilizables (pack x10)
+  Fecha de pedido: 2024-07-02
+  Entrega estimada: 2024-07-06
+  Transportista: MRW
+  tracking_url: https://track.mrw.es/ECO12350
+  Notas: Pedido en ruta hacia destino final.
+
+PEDIDO #ECO-12351
+  Cliente: Isabella Torres
+  Estado: PENDIENTE DE PAGO
+  Producto: Velas aromáticas de cera de soja (x3)
+  Fecha de pedido: 2024-07-03
+  Notas: El pago no fue confirmado. El pedido se cancelará automáticamente si no se completa el pago en las próximas 24 horas.
+  enlace_pago: https://ecomarket.com/pago/ECO12351
+
+PEDIDO #ECO-12352
+  Cliente: Alejandro Vega
+  Estado: RETENIDO EN ADUANA
+  Producto: Filtro de agua reutilizable premium (importado)
+  Fecha de pedido: 2024-06-25
+  Razón de retención: Revisión aduanera estándar para productos internacionales
+  Entrega estimada: 2024-07-10 (sujeto a autorización aduanera)
+  Transportista: FedEx Internacional
+  tracking_url: https://track.fedex.com/ECO12352
+  Notas: EcoMarket está en contacto con la agencia aduanera para agilizar el proceso.
+
+PEDIDO #ECO-12353
+  Cliente: Valentina Cruz
+  Estado: LISTO PARA RECOGIDA EN TIENDA
+  Producto: Contenedor de vidrio hermético (set x5)
+  Punto de recogida: Tienda EcoMarket Madrid — C/ Gran Vía 45, Local 2
+  Disponible hasta: 2024-07-10
+  Horario de recogida: Lunes a Sábado de 10:00 a 20:00h
+  Notas: Presentar DNI o número de pedido en tienda. Después del 2024-07-10 se devolverá el importe.
+
+PEDIDO #ECO-12354
+  Cliente: Pablo Moreno
+  Estado: DEVUELTO — REEMBOLSO EN PROCESO
+  Producto: Shampoo sólido orgánico
+  Devolución recibida en almacén: 2024-07-01
+  Motivo de devolución: Producto dañado durante el tránsito (embalaje roto)
+  Estado del reembolso: En proceso (3-5 días hábiles desde recepción)
+  Compensación adicional: Cupón de descuento del 10% para próxima compra enviado por email
+  Notas: EcoMarket se disculpa por el inconveniente. El control de calidad del embalaje ha sido revisado.
