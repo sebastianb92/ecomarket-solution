@@ -22,7 +22,6 @@
 
 ## Limitaciones técnicas y operativas
 
-> ⚠️ Reconocer las limitaciones es parte del diseño responsable. Cada una se asocia a una estrategia compensatoria.
 
 ### Limitaciones del modelo
 - **No maneja el 20% complejo**: Consultas que requieren empatía genuina, negociación o criterio ético no pueden automatizarse de forma segura.

@@ -16,19 +16,19 @@
 | **LLM de propósito general** (GPT-4o, Claude 3) | API externa, sin ajuste | Alta fluidez, fácil integración | Costo por token, datos salen de la empresa |
 | **LLM afinado** (Fine-tuned) | Modelo base + datos propios | Precisión máxima en dominio | Costo alto de entrenamiento, mantenimiento |
 | **SLM open-source** (Mistral 7B, LLaMA 3) | Modelo pequeño local | Sin costo de API, privacidad total | Menor razonamiento complejo |
-| ✅ **RAG + LLM (seleccionado)** | LLM + recuperación en tiempo real de BD | Precisión + fluidez + privacidad + escalable | Complejidad de implementación inicial |
+| **RAG + LLM (seleccionado)** | **LLM + recuperación en tiempo real de BD** | **Precisión + fluidez + privacidad + escalable** | **Complejidad de implementación inicial** |
 
 ---
 
 ## Modelo seleccionado: Arquitectura Híbrida RAG + LLM
 
-### ¿Por qué RAG + LLM y no un modelo de propósito general solo?
+### Justificación
 
-Un LLM sin contexto de datos reales tiene un problema crítico para EcoMarket: **las alucinaciones**. Si un cliente pregunta por el estado del pedido #ECO-12346, el modelo no tiene forma de saber la respuesta y podría inventarla. El módulo RAG resuelve esto al **recuperar primero la información real de la base de datos y luego inyectarla en el prompt**, garantizando que el modelo solo responda con datos verificados.
+Un LLM sin contexto de datos reales tiene un problema crítico para EcoMarket: **las alucinaciones**. Si un cliente pregunta por el estado del pedido #ECO-12346, el modelo no tiene forma de saber la respuesta y podría inventarla. El módulo RAG resuelve esto al recuperar primero la información real de la base de datos y luego inyectarla en el prompt, garantizando que el modelo solo responda con datos verificados.
 
 ### ¿Por qué no un modelo fine-tuned?
 
-El fine-tuning es costoso ($5,000–$50,000 en modelos grandes) y requiere mantenimiento continuo cada vez que cambian los datos (nuevos productos, políticas actualizadas). Con RAG, los datos se actualizan en tiempo real sin necesidad de re-entrenar el modelo.
+El fine-tuning es un proceso computacionalmente costoso y requiere mantenimiento continuo cada vez que cambian los datos (nuevos productos, políticas actualizadas). Con RAG, los datos se actualizan en tiempo real sin necesidad de re-entrenar el modelo.
 
 ### ¿Por qué un modelo open-source y no GPT-4o?
 
@@ -45,7 +45,7 @@ El fine-tuning es costoso ($5,000–$50,000 en modelos grandes) y requiere mante
 **Componentes:**
 1. **Clasificador de intención**: Determina si la consulta es sobre pedido, devolución, producto, etc.
 2. **Módulo RAG**: Recupera el contexto relevante (datos del pedido, política de devolución) de la BD interna.
-3. **LLM** (LLaMA 3.1 8B o Mistral 7B): Genera la respuesta con el contexto inyectado.
+3. **LLM** (llama-3.3-70b-versatile): Genera la respuesta con el contexto inyectado.
 4. **Capa de validación**: Verifica que los datos mencionados en la respuesta coincidan con los de la BD.
 
 ### Nivel 2 — Asistente de agente humano (20% de casos complejos)
@@ -68,12 +68,3 @@ El fine-tuning es costoso ($5,000–$50,000 en modelos grandes) y requiere mante
 | **Calidad de respuesta** | RAG garantiza precisión factual; LLM aporta fluidez y empatía | ★★★★★ 5/5 |
 | **Privacidad de datos** | Datos nunca salen del entorno de EcoMarket | ★★★★★ 5/5 |
 | **Precisión factual** | RAG elimina alucinaciones sobre datos críticos del negocio | ★★★★★ 5/5 |
-
----
-
-## Implementación en este taller
-
-Para el ejercicio práctico (Fase 3) utilizamos:
-- **Modelo**: `llama3-8b-8192` via Groq API (gratuita, sin tarjeta de crédito)
-- **RAG simulado**: Los archivos en `fase3_prompts/data/` emulan lo que el módulo RAG recuperaría de la BD real
-- **Alternativa local**: Ollama con `mistral:7b-instruct` para ejecución sin internet
