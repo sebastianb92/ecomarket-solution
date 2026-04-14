@@ -50,7 +50,6 @@ Puedes ejecutar la solución directamente en Google Colab sin necesidad de insta
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastianb92/ecomarket-solution/blob/main/notebooks/EcoMarket_AI_Solution.ipynb)
 
-Este botón permite abrir el notebook directamente desde GitHub en un entorno interactivo listo para ejecutar :contentReference[oaicite:0]{index=0}
 
 ---
 
