@@ -94,7 +94,7 @@ La implementación de sistemas basados en inteligencia artificial en entornos em
 
 ---
 
-## Mapa resumen de riesgos
+## Resumen de riesgos
 
 A continuación, se presenta una visión consolidada de los principales riesgos identificados, junto con su probabilidad, nivel de impacto y estrategia de mitigación asociada.
 

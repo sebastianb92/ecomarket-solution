@@ -17,112 +17,96 @@ ecomarket-solution/
 ├── README.md
 ├── requirements.txt
 ├── docs/
-│   ├── fase1_modelo.md
-│   ├── fase2_analisis.md
-│   └── fase3_prompting.md
+│   ├── fase1_selección_de_modelo.md
+│   ├── fase2_fortalezas_limitaciones_riesgos.md
 │
 ├── prompts/
-│   ├── system_prompt.txt
 │   ├── order_status_prompt.txt
-│   └── return_policy_prompt.txt
+│   ├── return_policy_prompt.txt
+│   ├── system_prompt.txt
 │
 ├── data/
-│   ├── orders.json
+│   ├── orders_database.txt
 │   └── policies.txt
 │
 ├── notebooks/
-│   └── demo_prompting.ipynb
+│   └── EcoMarket_AI_Solution.ipynb
 
 ```
+
+
+
+---
+## Uso
+
+La solución se ejecuta principalmente a través de un notebook interactivo que integra los prompts y las fuentes de datos de EcoMarket.
 
 ---
 
-## ⚙️ Instalación
+### Ejecución del notebook
 
-### 1. Clonar el repositorio
+1. Abrir el notebook en Google Colab:
 
-```bash
-git clone https://github.com/tu-usuario/ecomarket-ai-support.git
-cd ecomarket-ai-support
-```
+ [Abrir en Colab](./notebooks/EcoMarket_AI_Solution.ipynb)
 
-### 2. Crear entorno virtual
-
-```bash
-python -m venv venv
-
-# Linux/Mac:
-source venv/bin/activate
-
-# Windows:
-venv\Scripts\activate
-```
-
-### 3. Instalar dependencias
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar variables de entorno
-
-```bash
-cp .env.example .env
-```
-
-Edita el archivo `.env` y agrega tu API key de Groq:
-
-```
-GROQ_API_KEY=gsk_tu_api_key_aqui
-```
-
-> 💡 **Obtener API Key gratuita de Groq:** Ve a [console.groq.com](https://console.groq.com), crea una cuenta gratuita y genera una API key. No requiere tarjeta de crédito.
+2. Ejecutar las celdas en orden para:
+   - Cargar los prompts desde la carpeta `/prompts`
+   - Cargar los datos desde `/data`
+   - Inicializar el modelo LLM
+   - Probar los diferentes casos de uso
 
 ---
 
-## 🚀 Uso
+### Casos de uso incluidos
 
-### Demo interactiva (menú)
+El notebook permite simular los principales flujos del sistema:
 
-```bash
-python fase3_prompts/main.py
-```
+#### Consultar estado de un pedido
 
-### Consultar estado de un pedido
+Ejemplos incluidos:
+- Pedido válido
+- Pedido retrasado
+- Pedido no encontrado
 
-```bash
-python fase3_prompts/main.py --mode order --tracking ECO-12345
-python fase3_prompts/main.py --mode order --tracking ECO-12346   # Pedido retrasado
-python fase3_prompts/main.py --mode order --tracking ECO-99999   # Pedido no encontrado
-```
+Se utiliza:
+- `order_status_prompt.txt`
+- `orders_database.txt`
 
-### Solicitar devolución de producto
+---
 
-```bash
-# Devolución posible
-python fase3_prompts/main.py --mode return --product "botella de acero inoxidable" --reason "llegó con golpe" --days 10
+#### Solicitar devolución de producto
 
-# Devolución NO posible (higiene)
-python fase3_prompts/main.py --mode return --product "jabón orgánico abierto" --reason "no me gustó el olor" --days 5
+Ejemplos incluidos:
+- Devolución válida
+- Producto no elegible (higiene)
+- Devolución fuera de plazo
 
-# Devolución fuera de plazo
-python fase3_prompts/main.py --mode return --product "set de cubiertos de bambú" --reason "cambié de opinión" --days 45
-```
+Se utiliza:
+- `return_policy_prompt.txt`
+- `policies.txt`
 
-### Ejecutar todos los casos de prueba
+---
 
-```bash
-python -m pytest tests/ -v
-# O sin pytest:
-python tests/test_order_prompt.py
-python tests/test_return_prompt.py
-```
+### Estructura utilizada en la ejecución
+
+El notebook hace uso de los siguientes componentes del proyecto:
+
+- **Prompts** (`/prompts`): definen la lógica de interacción con el modelo
+- **Datos** (`/data`): contienen la información de pedidos y políticas
+- **Notebook** (`/notebooks`): orquesta la ejecución e integración de todos los componentes
+
+---
+
+### Notas
+
+- No es necesario ejecutar scripts adicionales; toda la lógica está contenida en el notebook.
+- El sistema puede adaptarse fácilmente a producción reemplazando las fuentes de datos por APIs o bases de datos reales.
 
 ---
 
 ---
 
-## 📊 Casos de prueba incluidos
+## Casos de prueba incluidos
 
 | # | Escenario | Tipo | Resultado esperado |
 |---|-----------|------|--------------------|
@@ -139,7 +123,7 @@ python tests/test_return_prompt.py
 
 ---
 
-## 🏗️ Arquitectura de la solución
+##  Arquitectura de la solución
 
 ```
 Consulta del cliente
@@ -151,5 +135,13 @@ Consulta del cliente
 └───────────────────┘ ──► compleja (20%) ──► Asistente de agente humano
 ```
 
-En este prototipo, el **RAG está simulado** mediante la carga directa de los archivos de texto en `fase3_prompts/data/`. En producción, estos datos serían recuperados dinámicamente desde las APIs de EcoMarket.
 
+---
+
+## Autores
+
+* Johan Sebastian Bonilla
+
+* Edwin Gómez
+
+---
