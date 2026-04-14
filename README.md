@@ -18,12 +18,12 @@ ecomarket-solution/
 ├── requirements.txt
 ├── docs/
 │   ├── fase1_selección_de_modelo.md
-│   ├── fase2_fortalezas_limitaciones_riesgos.md
+│   └── fase2_fortalezas_limitaciones_riesgos.md
 │
 ├── prompts/
 │   ├── order_status_prompt.txt
 │   ├── return_policy_prompt.txt
-│   ├── system_prompt.txt
+│   └── system_prompt.txt
 │
 ├── data/
 │   ├── orders_database.txt
@@ -72,7 +72,7 @@ Se utiliza:
 - `order_status_prompt.txt`
 - `orders_database.txt`
 
----
+
 
 #### Solicitar devolución de producto
 
@@ -85,7 +85,7 @@ Se utiliza:
 - `return_policy_prompt.txt`
 - `policies.txt`
 
----
+
 
 ### Estructura utilizada en la ejecución
 
@@ -95,14 +95,13 @@ El notebook hace uso de los siguientes componentes del proyecto:
 - **Datos** (`/data`): contienen la información de pedidos y políticas
 - **Notebook** (`/notebooks`): orquesta la ejecución e integración de todos los componentes
 
----
+
 
 ### Notas
 
 - No es necesario ejecutar scripts adicionales; toda la lógica está contenida en el notebook.
 - El sistema puede adaptarse fácilmente a producción reemplazando las fuentes de datos por APIs o bases de datos reales.
 
----
 
 ---
 
@@ -144,4 +143,3 @@ Consulta del cliente
 
 * Edwin Gómez
 
----
