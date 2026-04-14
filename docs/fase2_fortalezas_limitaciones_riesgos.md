@@ -58,47 +58,38 @@ La implementación de sistemas basados en inteligencia artificial en entornos em
 
 ### Riesgo 1: Alucinaciones del modelo
 
-| Campo | Detalle |
+|  | Detalle |
 |-------|---------|
 | **Descripción** | El modelo de lenguaje podría generar información incorrecta o no verificada sobre pedidos, fechas, precios o políticas, especialmente en ausencia de contexto suficiente. |
 | **Impacto** | La entrega de información errónea puede generar pérdida de confianza por parte del cliente, reclamaciones, conflictos comerciales e incluso implicaciones legales. |
-| **Mitigación** | Se implementa un enfoque RAG que garantiza que el modelo utilice únicamente información proveniente de fuentes verificadas. Adicionalmente, se incorpora una capa de validación posterior a la generación y se definen instrucciones explícitas en el prompt para que el sistema indique cuando no dispone de información suficiente. |
+| **Mitigación** | Se implementa un enfoque RAG que garantiza el uso de información verificada, junto con una capa de validación posterior a la generación y prompts que instruyen al modelo a reconocer cuando no dispone de información suficiente. |
 
 
 ### Riesgo 2: Sesgo en las respuestas
 
-| Campo | Detalle |
+|  | Detalle |
 |-------|---------|
-| **Descripción** | El modelo podría presentar sesgos en sus respuestas, tratando de manera diferenciada a los usuarios según características implícitas como el lenguaje, dialecto o nombre. |
-| **Impacto** | Esto puede derivar en un servicio inequitativo, afectando la reputación de la empresa y generando posibles incumplimientos de normativas relacionadas con la no discriminación. |
-| **Mitigación** | Se establecen auditorías periódicas para detectar sesgos en las respuestas del sistema. Asimismo, se diseñan prompts con lineamientos explícitos de trato igualitario y se implementa monitoreo de indicadores de satisfacción del cliente (CSAT) segmentados por perfiles para identificar posibles desviaciones. |
+| **Descripción** | El modelo podría presentar sesgos en sus respuestas, tratando de manera diferenciada a los usuarios según características implícitas como lenguaje, dialecto o nombre. |
+| **Impacto** | Puede derivar en un servicio inequitativo, afectando la reputación de la empresa y generando posibles incumplimientos de normativas de no discriminación. |
+| **Mitigación** | Se realizan auditorías periódicas de sesgo, se diseñan prompts con lineamientos explícitos de trato equitativo y se monitorean indicadores de satisfacción del cliente segmentados para detectar desviaciones. |
 
 
 ### Riesgo 3: Privacidad y protección de datos
 
-| Campo | Detalle |
+|  | Detalle |
 |-------|---------|
 | **Descripción** | El sistema utiliza datos sensibles del cliente (como nombre, dirección o historial de pedidos) como parte del contexto para generar respuestas. |
-| **Marco normativo** | Se consideran regulaciones como el RGPD (para operaciones en la Unión Europea), leyes locales de protección de datos y estándares como PCI-DSS en el manejo de información de pago. |
-| **Mitigación** | El modelo se despliega en entornos controlados (on-premise o nube privada). Se aplican técnicas de seudonimización de datos antes de su uso en prompts, se restringe el uso de información sensible (especialmente datos de pago) y se implementan políticas claras de retención y eliminación de logs. Además, se establecen acuerdos de procesamiento de datos (DPA) con proveedores tecnológicos. |
+| **Impacto** | Un manejo inadecuado de esta información puede generar riesgos de seguridad, sanciones legales y pérdida de confianza del cliente. |
+| **Mitigación** | El modelo se despliega en entornos controlados (on-premise o nube privada), se aplican técnicas de seudonimización, se restringe el uso de datos sensibles (especialmente datos de pago) y se implementan políticas de retención y eliminación de logs. |
 
 
 ### Riesgo 4: Impacto laboral
 
-**Enfoque adoptado: empoderar al talento humano, no reemplazarlo.**
-
-El objetivo del sistema no es sustituir a los agentes de atención al cliente, sino redefinir su rol dentro de la organización:
-
-- Los agentes evolucionan de tareas repetitivas hacia la gestión de casos complejos que requieren criterio, empatía y toma de decisiones.
-- Se mejora la satisfacción laboral al reducir la carga operativa monótona.
-- El sistema actúa como un asistente que optimiza el trabajo humano, no como un reemplazo.
-
-**Plan de transición:**
-
-1. Capacitación del equipo en supervisión de sistemas de IA y manejo de casos complejos.
-2. Implementación de una política organizacional que evite despidos asociados directamente a la adopción de IA en una fase inicial.
-3. Rediseño de esquemas de incentivos, priorizando la calidad en la resolución de casos sobre el volumen de atención.
-
+|  | Detalle |
+|-------|---------|
+| **Descripción** | La automatización de procesos de atención al cliente puede generar incertidumbre en el equipo humano respecto a la estabilidad de sus roles laborales. |
+| **Impacto** | Puede afectar la motivación del equipo, generar resistencia al cambio y tener implicaciones reputacionales para la organización. |
+| **Mitigación** | Se adopta un enfoque de empoderamiento del talento humano mediante estrategias de re-skilling, políticas que eviten la sustitución directa de personal en fases iniciales y rediseño de roles hacia tareas de mayor valor agregado. |
 
 
 ---
