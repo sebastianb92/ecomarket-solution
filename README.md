@@ -42,67 +42,81 @@ ecomarket-solution/
 La solución se ejecuta principalmente a través de un notebook interactivo que integra los prompts y las fuentes de datos de EcoMarket.
 
 ---
+##  Uso
 
-### Ejecución del notebook
+###  Ejecutar en Google Colab
 
-1. Abrir el notebook en Google Colab:
+Puedes ejecutar la solución directamente en Google Colab sin necesidad de instalar dependencias en tu entorno local:
 
- [Abrir en Colab](./notebooks/EcoMarket_AI_Solution.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastianb92/ecomarket-solution/blob/main/notebooks/EcoMarket_AI_Solution.ipynb)
 
-2. Ejecutar las celdas en orden para:
-   - Cargar los prompts desde la carpeta `/prompts`
-   - Cargar los datos desde `/data`
-   - Inicializar el modelo LLM
-   - Probar los diferentes casos de uso
+Este botón permite abrir el notebook directamente desde GitHub en un entorno interactivo listo para ejecutar :contentReference[oaicite:0]{index=0}
 
 ---
 
-### Casos de uso incluidos
+### Pasos de ejecución
 
-El notebook permite simular los principales flujos del sistema:
+Una vez abierto el notebook:
 
-#### Consultar estado de un pedido
+1. Ejecuta las celdas en orden.
+2. El sistema realizará automáticamente:
+   - Carga de prompts desde `/prompts`
+   - Carga de datos desde `/data`
+   - Inicialización del modelo LLM
+   - Ejecución de los casos de uso
 
-Ejemplos incluidos:
+---
+
+###  Casos de uso incluidos
+
+El notebook simula los principales flujos del sistema de atención al cliente.
+
+####  Consulta de estado de pedido
+
+Escenarios disponibles:
 - Pedido válido
 - Pedido retrasado
 - Pedido no encontrado
 
-Se utiliza:
-- `order_status_prompt.txt`
-- `orders_database.txt`
+**Archivos utilizados:**
+- `prompts/order_status_prompt.txt`
+- `data/orders_database.txt`
 
+---
 
+####  Solicitud de devolución
 
-#### Solicitar devolución de producto
-
-Ejemplos incluidos:
+Escenarios disponibles:
 - Devolución válida
-- Producto no elegible (higiene)
+- Producto no elegible (políticas de higiene)
 - Devolución fuera de plazo
 
-Se utiliza:
-- `return_policy_prompt.txt`
-- `policies.txt`
+**Archivos utilizados:**
+- `prompts/return_policy_prompt.txt`
+- `data/policies.txt`
 
+---
 
+###  Arquitectura en ejecución
 
-### Estructura utilizada en la ejecución
+El notebook integra los siguientes componentes del proyecto:
 
-El notebook hace uso de los siguientes componentes del proyecto:
+- **Prompts (`/prompts`)**  
+  Definen la lógica de interacción y comportamiento del modelo.
 
-- **Prompts** (`/prompts`): definen la lógica de interacción con el modelo
-- **Datos** (`/data`): contienen la información de pedidos y políticas
-- **Notebook** (`/notebooks`): orquesta la ejecución e integración de todos los componentes
+- **Datos (`/data`)**  
+  Simulan las fuentes reales del negocio (pedidos y políticas).
 
+- **Notebook (`/notebooks`)**  
+  Orquesta el flujo completo tipo RAG (carga → contexto → generación → respuesta).
 
+---
 
-### Notas
+###  Notas
 
-- No es necesario ejecutar scripts adicionales; toda la lógica está contenida en el notebook.
-- El sistema puede adaptarse fácilmente a producción reemplazando las fuentes de datos por APIs o bases de datos reales.
-
-
+- No se requieren scripts adicionales: toda la lógica está contenida en el notebook.
+- Al abrir desde Colab, se ejecuta una copia independiente del notebook (no modifica el repositorio original).
+- La solución puede escalar fácilmente a producción reemplazando archivos locales por APIs o bases de datos reales.
 ---
 
 ## Casos de prueba incluidos
@@ -113,12 +127,13 @@ El notebook hace uso de los siguientes componentes del proyecto:
 | 2 | Pedido ECO-12346 retrasado | Estado | Disculpa + nueva fecha |
 | 3 | Pedido ECO-12347 entregado | Estado | Confirmación de entrega |
 | 4 | Pedido ECO-12349 cancelado | Estado | Info del reembolso |
-| 5 | Número de pedido inexistente | Estado | Redirección a soporte |
-| 6 | Devolución de producto de hogar (OK) | Devolución | Instrucciones del proceso |
-| 7 | Devolución de jabón abierto (NO) | Devolución | Negativa empática + alternativas |
-| 8 | Devolución fuera de plazo 30 días | Devolución | Negativa + escalado a humano |
-| 9 | Devolución por daño en envío | Devolución | Aprobación + compensación |
-| 10 | Producto perecedero (alimento) | Devolución | Negativa empática + política |
+| 5 | Pedido ECO-12351 pendiente | Estado | Pendiente de pago |
+| 6 | Número de pedido inexistente | Estado | Redirección a soporte |
+| 7 | Devolución de producto de hogar (OK) | Devolución | Instrucciones del proceso |
+| 8 | Devolución de jabón abierto (NO) | Devolución | Negativa empática + alternativas |
+| 9 | Devolución fuera de plazo 30 días | Devolución | Negativa + escalado a humano |
+| 10 | Devolución por daño en envío | Devolución | Aprobación + compensación |
+| 11 | Producto perecedero (alimento) | Devolución | Negativa empática + política |
 
 ---
 
