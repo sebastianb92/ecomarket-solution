@@ -66,7 +66,6 @@ Por estas razones, un modelo open-source representa una alternativa más adecuad
 
 La solución se diseña bajo un enfoque híbrido que combina automatización inteligente con supervisión humana, permitiendo escalar la atención al cliente sin perder calidad en casos complejos.
 
----
 
 ### Nivel 1 — Chatbot automatizado (80% de consultas)
 
@@ -146,6 +145,6 @@ La solución propuesta se justifica a partir de criterios clave para entornos em
 | **Privacidad de datos** | Al operar sobre infraestructura propia, los datos sensibles permanecen dentro del entorno de la empresa, lo que reduce riesgos de seguridad y facilita el cumplimiento de normativas de protección de datos. |
 | **Precisión factual** | El uso de RAG garantiza que las respuestas estén fundamentadas en datos reales y actualizados, evitando alucinaciones en información crítica del negocio como pedidos o políticas. |
 
----
+
 
 

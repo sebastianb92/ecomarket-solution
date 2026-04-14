@@ -4,7 +4,6 @@
 
 El sistema propuesto presenta múltiples fortalezas que impactan directamente la disponibilidad del servicio, la calidad de las respuestas y la eficiencia operativa del área de atención al cliente.
 
----
 
 ### Disponibilidad y velocidad
 
@@ -12,7 +11,6 @@ El sistema propuesto presenta múltiples fortalezas que impactan directamente la
 - **Reducción significativa en los tiempos de respuesta**: Se estima un tiempo de respuesta inferior a 2 minutos para aproximadamente el 80% de las consultas, en comparación con los tiempos actuales que pueden alcanzar hasta 24 horas.
 - **Capacidad de escalamiento ante alta demanda**: La arquitectura permite soportar picos de tráfico, como eventos comerciales (por ejemplo, campañas o temporadas de alto volumen), sin degradación significativa en el rendimiento.
 
----
 
 ### Calidad y consistencia
 
@@ -21,7 +19,6 @@ El sistema propuesto presenta múltiples fortalezas que impactan directamente la
 - **Soporte multicanal**: La solución permite atender diferentes canales (chat, correo electrónico, redes sociales) utilizando una misma lógica central, asegurando coherencia en las respuestas independientemente del punto de contacto.
 - **Capacidad multilingüe**: El sistema puede operar en múltiples idiomas (como español, inglés y portugués), ampliando el alcance del servicio sin requerir costos adicionales significativos.
 
----
 
 ### Eficiencia operativa
 
@@ -37,7 +34,6 @@ El sistema propuesto presenta múltiples fortalezas que impactan directamente la
 
 A pesar de las ventajas del sistema propuesto, es importante reconocer ciertas limitaciones tanto a nivel técnico como operativo, las cuales deben ser gestionadas adecuadamente para garantizar un funcionamiento óptimo.
 
----
 
 ### Limitaciones del modelo
 
@@ -46,7 +42,6 @@ A pesar de las ventajas del sistema propuesto, es importante reconocer ciertas l
 - **Errores en la clasificación de intención**: El clasificador puede presentar fallos al interpretar correctamente la intención del usuario, lo que podría derivar en que consultas complejas sean tratadas como simples, afectando la calidad de la respuesta automatizada.
 - **Limitaciones en la comprensión emocional**: Aunque el modelo puede simular un tono empático, no posee una comprensión real de emociones complejas. Esto limita su capacidad para interpretar adecuadamente situaciones con sarcasmo, ironía o clientes en estado de frustración elevada.
 
----
 
 ### Limitaciones operativas
 
@@ -60,7 +55,6 @@ A pesar de las ventajas del sistema propuesto, es importante reconocer ciertas l
 
 La implementación de sistemas basados en inteligencia artificial en entornos empresariales conlleva una serie de riesgos éticos que deben ser identificados y gestionados de manera proactiva. A continuación, se presentan los principales riesgos asociados al sistema propuesto, junto con sus respectivos planes de mitigación.
 
----
 
 ### Riesgo 1: Alucinaciones del modelo
 
@@ -70,7 +64,6 @@ La implementación de sistemas basados en inteligencia artificial en entornos em
 | **Impacto** | La entrega de información errónea puede generar pérdida de confianza por parte del cliente, reclamaciones, conflictos comerciales e incluso implicaciones legales. |
 | **Mitigación** | Se implementa un enfoque RAG que garantiza que el modelo utilice únicamente información proveniente de fuentes verificadas. Adicionalmente, se incorpora una capa de validación posterior a la generación y se definen instrucciones explícitas en el prompt para que el sistema indique cuando no dispone de información suficiente. |
 
----
 
 ### Riesgo 2: Sesgo en las respuestas
 
@@ -80,7 +73,6 @@ La implementación de sistemas basados en inteligencia artificial en entornos em
 | **Impacto** | Esto puede derivar en un servicio inequitativo, afectando la reputación de la empresa y generando posibles incumplimientos de normativas relacionadas con la no discriminación. |
 | **Mitigación** | Se establecen auditorías periódicas para detectar sesgos en las respuestas del sistema. Asimismo, se diseñan prompts con lineamientos explícitos de trato igualitario y se implementa monitoreo de indicadores de satisfacción del cliente (CSAT) segmentados por perfiles para identificar posibles desviaciones. |
 
----
 
 ### Riesgo 3: Privacidad y protección de datos
 
@@ -90,7 +82,6 @@ La implementación de sistemas basados en inteligencia artificial en entornos em
 | **Marco normativo** | Se consideran regulaciones como el RGPD (para operaciones en la Unión Europea), leyes locales de protección de datos y estándares como PCI-DSS en el manejo de información de pago. |
 | **Mitigación** | El modelo se despliega en entornos controlados (on-premise o nube privada). Se aplican técnicas de seudonimización de datos antes de su uso en prompts, se restringe el uso de información sensible (especialmente datos de pago) y se implementan políticas claras de retención y eliminación de logs. Además, se establecen acuerdos de procesamiento de datos (DPA) con proveedores tecnológicos. |
 
----
 
 ### Riesgo 4: Impacto laboral
 
@@ -111,6 +102,7 @@ El objetivo del sistema no es sustituir a los agentes de atención al cliente, s
 
 
 ---
+
 ## Mapa resumen de riesgos
 
 A continuación, se presenta una visión consolidada de los principales riesgos identificados, junto con su probabilidad, nivel de impacto y estrategia de mitigación asociada.
