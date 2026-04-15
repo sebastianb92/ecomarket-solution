@@ -1,115 +1,241 @@
-# Fase 2 — Fortalezas, Limitaciones y Riesgos Éticos
+# Fase 2: Evaluación de Fortalezas, Limitaciones y Riesgos Éticos
 
-## Fortalezas del sistema propuesto
+## 1. Fortalezas de la Solución Propuesta
 
-El sistema propuesto presenta múltiples fortalezas que impactan directamente la disponibilidad del servicio, la calidad de las respuestas y la eficiencia operativa del área de atención al cliente.
+### 1.1 Reducción Drástica del Tiempo de Respuesta
 
+La fortaleza más inmediata y medible es la reducción del tiempo de respuesta promedio de **24 horas a segundos** para el 80% de las consultas. En e-commerce, cada hora de espera incrementa la probabilidad de abandono de compra y de reseñas negativas. Un servicio de respuesta instantánea impacta directamente en:
 
-### Disponibilidad y velocidad
+- **Tasa de conversión:** Clientes que obtienen respuestas rápidas sobre productos tienen mayor probabilidad de completar la compra.
+- **Retención:** La satisfacción con el soporte es uno de los principales predictores de lealtad del cliente.
+- **NPS (Net Promoter Score):** Las respuestas rápidas y precisas incrementan la disposición del cliente a recomendar EcoMarket.
 
-- **Disponibilidad continua (24/7/365)**: El sistema puede atender consultas en cualquier momento, eliminando la dependencia de horarios laborales y mejorando la experiencia del cliente en términos de acceso al servicio.
-- **Reducción significativa en los tiempos de respuesta**: Se estima un tiempo de respuesta inferior a 2 minutos para aproximadamente el 80% de las consultas, en comparación con los tiempos actuales que pueden alcanzar hasta 24 horas.
-- **Capacidad de escalamiento ante alta demanda**: La arquitectura permite soportar picos de tráfico, como eventos comerciales (por ejemplo, campañas o temporadas de alto volumen), sin degradación significativa en el rendimiento.
+### 1.2 Disponibilidad 24/7
 
+El sistema de IA no tiene horarios laborales, vacaciones ni días festivos. Esto es especialmente relevante para EcoMarket dado que:
 
-### Calidad y consistencia
+- Los clientes de e-commerce compran en horarios diversos, incluyendo noches y fines de semana.
+- Si EcoMarket opera en múltiples zonas horarias, la cobertura 24/7 elimina la necesidad de turnos rotativos costosos.
 
-- **Respuestas basadas en información verificable**: Gracias al uso de un módulo RAG, las respuestas se fundamentan en datos reales provenientes de las bases internas, lo que reduce significativamente el riesgo de alucinaciones en información crítica como pedidos o políticas.
-- **Consistencia en el tono y estilo de comunicación**: El sistema garantiza uniformidad en las respuestas, manteniendo un tono profesional y alineado con la identidad de la empresa, evitando variaciones propias de la interacción humana.
-- **Soporte multicanal**: La solución permite atender diferentes canales (chat, correo electrónico, redes sociales) utilizando una misma lógica central, asegurando coherencia en las respuestas independientemente del punto de contacto.
-- **Capacidad multilingüe**: El sistema puede operar en múltiples idiomas (como español, inglés y portugués), ampliando el alcance del servicio sin requerir costos adicionales significativos.
+### 1.3 Manejo Eficiente del 80% de Consultas Repetitivas
 
+La arquitectura RAG permite al sistema responder con precisión a consultas estandarizadas:
 
-### Eficiencia operativa
+- **Estado de pedidos:** Consulta en tiempo real a la BD de logística.
+- **Devoluciones:** Aplicación consistente de las políticas de EcoMarket.
+- **Características del producto:** Información precisa extraída del catálogo.
 
-- **Reducción de la carga operativa**: Se estima una disminución del 60% al 70% en el volumen de consultas gestionadas manualmente por el equipo de soporte, permitiendo optimizar recursos.
-- **Enfoque en tareas de mayor valor**: Los agentes humanos pueden concentrarse en casos complejos que requieren empatía, juicio o toma de decisiones, mejorando la calidad del servicio en situaciones críticas.
-- **Mejora continua del sistema**: El almacenamiento y análisis de las interacciones permite identificar patrones, errores y oportunidades de mejora, facilitando la evolución constante del sistema mediante ajustes en prompts, reglas o fuentes de información.
+Esto libera a los agentes humanos para casos que realmente requieren su intervención.
 
+### 1.4 Consistencia en las Respuestas
 
+A diferencia de los agentes humanos, cuyas respuestas pueden variar según su nivel de experiencia, estado de ánimo o interpretación de las políticas, el sistema de IA aplica las mismas reglas y el mismo tono de manera uniforme. Esto garantiza:
 
----
+- Equidad en el trato a todos los clientes.
+- Cumplimiento consistente de las políticas de la empresa.
+- Reducción de errores humanos por fatiga o desconocimiento.
 
-## Limitaciones técnicas y operativas
+### 1.5 Escalabilidad Multi-canal y Multi-idioma
 
-A pesar de las ventajas del sistema propuesto, es importante reconocer ciertas limitaciones tanto a nivel técnico como operativo, las cuales deben ser gestionadas adecuadamente para garantizar un funcionamiento óptimo.
+El mismo motor de IA puede servir simultáneamente chat en vivo, correo electrónico, redes sociales y WhatsApp, sin duplicar esfuerzos. Además, los LLMs modernos manejan múltiples idiomas de forma nativa, lo que facilita la expansión internacional de EcoMarket.
 
+### 1.6 Generación de Insights a Partir de Datos
 
-### Limitaciones del modelo
+El sistema puede recopilar y analizar patrones en las consultas de los clientes, proporcionando información valiosa para:
 
-- **Cobertura limitada en casos complejos**: Aproximadamente un 20% de las consultas, aquellas que requieren empatía, negociación o juicio ético, no pueden ser automatizadas de forma completamente confiable. Estos casos deben ser gestionados por agentes humanos bajo un enfoque *human-in-the-loop*.
-- **Dependencia de la calidad de los datos**: El desempeño del sistema está directamente ligado a la calidad de las fuentes de información. Si la base de datos contiene errores, inconsistencias o información desactualizada, el sistema replicará dichas fallas en sus respuestas (principio de *garbage in, garbage out*).
-- **Errores en la clasificación de intención**: El clasificador puede presentar fallos al interpretar correctamente la intención del usuario, lo que podría derivar en que consultas complejas sean tratadas como simples, afectando la calidad de la respuesta automatizada.
-- **Limitaciones en la comprensión emocional**: Aunque el modelo puede simular un tono empático, no posee una comprensión real de emociones complejas. Esto limita su capacidad para interpretar adecuadamente situaciones con sarcasmo, ironía o clientes en estado de frustración elevada.
-
-
-### Limitaciones operativas
-
-- **Curva de aprendizaje del equipo**: La implementación del sistema requiere que el equipo adquiera nuevas habilidades, como supervisión de modelos, ajuste de prompts y análisis de resultados, lo que implica un proceso de capacitación inicial.
-- **Complejidad en la integración técnica**: La conexión entre el módulo RAG, las bases de datos internas y los sistemas existentes (como CRM o APIs) puede requerir entre 8 y 12 semanas de desarrollo e implementación, dependiendo de la madurez tecnológica de la organización.
-- **Mantenimiento continuo de prompts y reglas**: Los prompts y configuraciones del sistema deben actualizarse periódicamente para reflejar cambios en políticas, productos o procesos internos, lo que implica un esfuerzo de mantenimiento constante.
-
-
----
-## Riesgos éticos y plan de mitigación
-
-La implementación de sistemas basados en inteligencia artificial en entornos empresariales conlleva una serie de riesgos éticos que deben ser identificados y gestionados de manera proactiva. A continuación, se presentan los principales riesgos asociados al sistema propuesto, junto con sus respectivos planes de mitigación.
-
-
-### Riesgo 1: Alucinaciones del modelo
-
-|  | Detalle |
-|-------|---------|
-| **Descripción** | El modelo de lenguaje podría generar información incorrecta o no verificada sobre pedidos, fechas, precios o políticas, especialmente en ausencia de contexto suficiente. |
-| **Impacto** | La entrega de información errónea puede generar pérdida de confianza por parte del cliente, reclamaciones, conflictos comerciales e incluso implicaciones legales. |
-| **Mitigación** | Se implementa un enfoque RAG que garantiza el uso de información verificada, junto con una capa de validación posterior a la generación y prompts que instruyen al modelo a reconocer cuando no dispone de información suficiente. |
-
-
-### Riesgo 2: Sesgo en las respuestas
-
-|  | Detalle |
-|-------|---------|
-| **Descripción** | El modelo podría presentar sesgos en sus respuestas, tratando de manera diferenciada a los usuarios según características implícitas como lenguaje, dialecto o nombre. |
-| **Impacto** | Puede derivar en un servicio inequitativo, afectando la reputación de la empresa y generando posibles incumplimientos de normativas de no discriminación. |
-| **Mitigación** | Se realizan auditorías periódicas de sesgo, se diseñan prompts con lineamientos explícitos de trato equitativo y se monitorean indicadores de satisfacción del cliente segmentados para detectar desviaciones. |
-
-
-### Riesgo 3: Privacidad y protección de datos
-
-|  | Detalle |
-|-------|---------|
-| **Descripción** | El sistema utiliza datos sensibles del cliente (como nombre, dirección o historial de pedidos) como parte del contexto para generar respuestas. |
-| **Impacto** | Un manejo inadecuado de esta información puede generar riesgos de seguridad, sanciones legales y pérdida de confianza del cliente. |
-| **Mitigación** | El modelo se despliega en entornos controlados (on-premise o nube privada), se aplican técnicas de seudonimización, se restringe el uso de datos sensibles (especialmente datos de pago) y se implementan políticas de retención y eliminación de logs. |
-
-
-### Riesgo 4: Impacto laboral
-
-|  | Detalle |
-|-------|---------|
-| **Descripción** | La automatización de procesos de atención al cliente puede generar incertidumbre en el equipo humano respecto a la estabilidad de sus roles laborales. |
-| **Impacto** | Puede afectar la motivación del equipo, generar resistencia al cambio y tener implicaciones reputacionales para la organización. |
-| **Mitigación** | Se adopta un enfoque de empoderamiento del talento humano mediante estrategias de re-skilling, políticas que eviten la sustitución directa de personal en fases iniciales y rediseño de roles hacia tareas de mayor valor agregado. |
-
+- Identificar productos con tasas altas de devolución.
+- Detectar problemas recurrentes en el proceso de envío.
+- Descubrir oportunidades de mejora en la experiencia de compra.
 
 ---
 
-## Resumen de riesgos
+## 2. Limitaciones de la Solución Propuesta
 
-A continuación, se presenta una visión consolidada de los principales riesgos identificados, junto con su probabilidad, nivel de impacto y estrategia de mitigación asociada.
+### 2.1 Incapacidad para Manejar el 20% de Casos Complejos
 
-| Riesgo | Probabilidad | Impacto | Estrategia principal |
-|--------|-------------|---------|---------------------|
-| **Alucinaciones del modelo** | Media | Alto | Implementación de arquitectura RAG para asegurar el uso de información verificada, complementada con una capa de validación posterior a la generación. |
-| **Sesgo en las respuestas** | Baja-Media | Medio | Ejecución de auditorías periódicas de sesgo, junto con el diseño de prompts que garanticen trato equitativo y monitoreo de métricas de satisfacción segmentadas. |
-| **Privacidad de datos** | Media | Muy alto | Despliegue del modelo en entornos controlados (on-premise o nube privada) y aplicación de técnicas de seudonimización para proteger la información sensible. |
-| **Impacto laboral negativo** | Baja | Alto (reputacional) | Implementación de una estrategia centrada en el re-skilling del personal y el uso de la IA como herramienta de apoyo, evitando su sustitución directa. |
-| **Error en la clasificación de intención** | Media | Medio | Definición de umbrales de confianza y mecanismos de escalamiento automático hacia agentes humanos en casos de ambigüedad. |
+El modelo de IA **no puede reemplazar** la empatía genuina, el juicio situacional y la creatividad que un agente humano aporta en casos como:
+
+- **Quejas emocionales:** Un cliente frustrado por un regalo de cumpleaños que no llegó a tiempo necesita una respuesta que demuestre comprensión emocional real, no solo palabras empáticas generadas.
+- **Problemas técnicos inusuales:** Situaciones no documentadas en las políticas que requieren criterio y escalamiento.
+- **Negociaciones:** Casos donde se necesita autorizar excepciones a las políticas (ej: extender un plazo de devolución por circunstancias especiales).
+
+**Impacto:** Si el sistema intenta manejar estos casos, puede empeorar la situación al dar respuestas que parecen insensibles o genéricas.
+
+### 2.2 Dependencia de la Calidad de los Datos
+
+La calidad de las respuestas del sistema RAG es directamente proporcional a la calidad de los datos subyacentes:
+
+- **BD de pedidos desactualizada:** Si hay un retraso en la sincronización entre el sistema logístico y la BD que consulta el RAG, el modelo podría dar información incorrecta sobre el estado de un envío.
+- **Catálogo incompleto:** Si un producto nuevo no se ha cargado correctamente, el modelo no podrá responder preguntas sobre él.
+- **Políticas ambiguas:** Si las políticas de devolución tienen zonas grises o son contradictorias, el modelo puede dar respuestas inconsistentes.
+
+### 2.3 Latencia en Consultas Complejas
+
+Aunque la mayoría de las respuestas se generan en segundos, consultas que requieren múltiples búsquedas en la BD (ej: "¿cuánto me falta para envío gratis si agrego este producto a mi carrito?") pueden tener tiempos de respuesta más largos, afectando la experiencia del usuario.
+
+### 2.4 Limitaciones del Contexto Conversacional
+
+Los LLMs tienen una ventana de contexto finita. En conversaciones largas, el modelo puede "olvidar" información mencionada al inicio. Esto puede resultar en:
+
+- Solicitar información que el cliente ya proporcionó.
+- Perder el hilo de una conversación con múltiples temas.
+
+### 2.5 Costo de Infraestructura
+
+Aunque más económico que contratar agentes adicionales, el sistema requiere inversión continua en:
+
+- Llamadas a la API del LLM (costo por token).
+- Mantenimiento de la infraestructura de RAG (base de datos vectorial, servidores).
+- Monitoreo y ajuste continuo de los prompts y el sistema.
+
+### 2.6 Dificultad para Manejar Sarcasmo, Ironía y Contexto Cultural
+
+Los LLMs pueden malinterpretar matices del lenguaje como el sarcasmo ("Oh, qué maravilla que mi pedido lleve 3 semanas"), la ironía o referencias culturales específicas, lo que puede llevar a respuestas inapropiadas o fuera de tono.
 
 ---
 
-### Análisis general
+## 3. Riesgos Éticos
 
-El mapa de riesgos evidencia que los principales desafíos se concentran en aspectos técnicos (como alucinaciones y clasificación) y éticos (privacidad y sesgo). No obstante, todos los riesgos identificados cuentan con estrategias de mitigación claras y viables, lo que permite reducir su impacto y asegurar una implementación controlada del sistema.
+### 3.1 Alucinaciones (Fabricación de Información)
 
-En este sentido, el enfoque adoptado no busca eliminar completamente los riesgos —lo cual no es realista en sistemas de IA— sino gestionarlos de manera efectiva mediante controles técnicos, operativos y organizacionales.
+**Descripción del riesgo:** Los LLMs pueden generar información que suena plausible pero es completamente falsa. En el contexto de atención al cliente, esto podría manifestarse como:
+
+- Inventar un estado de pedido ("Su pedido fue entregado ayer") cuando la información real no está disponible.
+- Fabricar características de un producto que no existen.
+- Citar políticas de devolución inexistentes o modificadas.
+
+**Gravedad:** 🔴 **Alta** — Puede generar expectativas falsas en el cliente, problemas legales y pérdida de confianza.
+
+**Mitigación:**
+- La arquitectura RAG reduce significativamente este riesgo al anclar las respuestas en datos reales.
+- Implementar un **módulo de validación** que verifique que los datos citados en la respuesta coincidan con la BD.
+- Incluir en el prompt de sistema la instrucción explícita: *"Si no tienes información sobre un pedido o producto, indica que no puedes encontrar la información y ofrece escalar a un agente humano. Nunca inventes datos."*
+- Monitorear respuestas con muestreo aleatorio para detectar alucinaciones.
+
+### 3.2 Sesgo en las Respuestas
+
+**Descripción del riesgo:** El LLM base se entrenó con datos de internet que pueden contener sesgos culturales, lingüísticos, de género o socioeconómicos. Esto podría manifestarse como:
+
+- Ofrecer respuestas más detalladas o empáticas a clientes que escriben en un registro formal vs. informal.
+- Asumir género del cliente basándose en el nombre.
+- Tratar diferente a clientes que cometen errores ortográficos o gramaticales (asumiendo menor nivel educativo).
+- Ofrecer soluciones diferentes para el mismo problema según la redacción de la consulta.
+
+**Gravedad:** 🟡 **Media** — Puede generar discriminación indirecta y afectar la reputación de EcoMarket.
+
+**Mitigación:**
+- Diseñar prompts de sistema que instruyan explícitamente al modelo a tratar a **todos los clientes de manera equitativa**, independientemente de su forma de expresarse.
+- Realizar **auditorías periódicas** comparando la calidad de las respuestas para diferentes perfiles de clientes (idioma, registro, complejidad gramatical).
+- Implementar pruebas de sesgo con conjuntos de consultas diseñadas para detectar tratamiento diferencial.
+- Evitar que el modelo tenga acceso a información demográfica del cliente que no sea relevante para la consulta.
+
+### 3.3 Privacidad de Datos
+
+**Descripción del riesgo:** El sistema maneja información personal sensible de los clientes:
+
+- Nombres completos y direcciones de envío.
+- Historial de compras y preferencias.
+- Información de métodos de pago (indirectamente).
+- Comunicaciones previas con soporte.
+
+Los riesgos específicos incluyen:
+
+- **Filtración al modelo:** Si se usa fine-tuning con datos reales de clientes, el modelo podría memorizar y revelar información personal a otros clientes.
+- **Fuga de datos en prompts:** Si la información de un cliente se incluye en el prompt y se envía a una API externa (por ejemplo, Groq u otro proveedor LLM), los datos salen del perímetro de seguridad de EcoMarket.
+- **Acceso cruzado:** El modelo podría responder con información de un pedido de otro cliente si hay errores en la lógica de recuperación.
+
+**Gravedad:** 🔴 **Alta** — Violaciones de GDPR/LOPD pueden resultar en multas significativas y daño reputacional severo.
+
+**Mitigación:**
+- **No usar datos PII (Personally Identifiable Information) para fine-tuning.** Solo usar RAG con datos recuperados en tiempo real y aislados por sesión.
+- **Anonimizar datos** antes de enviarlos como contexto al LLM: reemplazar nombres con placeholders, truncar direcciones si no son necesarias.
+- **Implementar control de acceso estricto** en la capa de RAG: cada consulta solo puede acceder a los datos del cliente autenticado.
+- **Cifrado en tránsito y en reposo** para todos los datos enviados al y recibidos del LLM.
+- **Política de retención de datos:** No almacenar las conversaciones más allá del periodo legalmente requerido.
+- **Auditoría de acceso:** Registrar cada consulta a la BD para detectar accesos no autorizados.
+- Considerar el uso de un **LLM auto-hospedado** (ej: Llama, Mistral) si los requisitos de privacidad son muy estrictos, evitando que los datos salgan de la infraestructura de EcoMarket.
+
+### 3.4 Impacto Laboral
+
+**Descripción del riesgo:** La implementación de IA en el servicio al cliente plantea preguntas legítimas sobre el futuro de los agentes humanos:
+
+- ¿Se eliminarán puestos de trabajo?
+- ¿Se precarizarán las condiciones laborales?
+- ¿Se desvalorizará el trabajo de atención al cliente?
+
+**Gravedad:** 🟡 **Media** — Impacto social significativo con implicaciones reputacionales para EcoMarket como empresa "sostenible".
+
+**Postura recomendada: Empoderamiento, no reemplazo.**
+
+La solución debe posicionarse como una herramienta que **empodera** a los agentes, no que los reemplaza:
+
+| Sin IA | Con IA |
+|---|---|
+| Agentes responden consultas repetitivas todo el día | IA maneja el 80% repetitivo |
+| Agentes quemados por volumen y monotonía | Agentes se enfocan en casos complejos de alto valor |
+| Tiempo de respuesta largo → clientes insatisfechos → más presión para agentes | Respuestas rápidas en lo automático → clientes más calmados al llegar a un humano |
+| Agentes como "máquinas de respuestas" | Agentes como **especialistas de experiencia del cliente** |
+
+**Acciones concretas:**
+- **Reskilling:** Capacitar a los agentes en supervisión de IA, análisis de calidad de respuestas y manejo de casos complejos.
+- **Nuevos roles:** Crear posiciones como "Curador de Conocimiento IA" (mantener la base de conocimiento actualizada) y "Supervisor de Calidad IA" (revisar y mejorar las respuestas del sistema).
+- **Comunicación transparente:** Informar al equipo sobre los cambios con anticipación e involucrarlos en el proceso de implementación.
+- **Métricas humanas:** Medir la satisfacción de los agentes, no solo la de los clientes.
+
+### 3.5 Transparencia con el Cliente
+
+**Descripción del riesgo:** Los clientes tienen derecho a saber si están interactuando con una IA o con un ser humano. La falta de transparencia puede:
+
+- Generar desconfianza cuando el cliente descubre que hablaba con una máquina.
+- Violar regulaciones que exigen divulgación de interacciones automatizadas.
+- Frustrar al cliente si intenta apelar a la empatía de lo que cree es un humano.
+
+**Gravedad:** 🟡 **Media** — Implicaciones legales y de confianza.
+
+**Mitigación:**
+- **Identificar claramente** al inicio de cada conversación que el cliente está interactuando con un asistente de IA.
+- **Ejemplo de mensaje inicial:** *"¡Hola! Soy EcoBot, el asistente virtual de EcoMarket. Estoy aquí para ayudarte con tus consultas. Si en algún momento prefieres hablar con un agente humano, solo dímelo."*
+- **Opción de escalar** a un agente humano siempre visible y accesible.
+- Nunca simular emociones que impliquen que el sistema es humano.
+
+### 3.6 Responsabilidad y Rendición de Cuentas
+
+**Descripción del riesgo:** Cuando el sistema comete un error (ej: da información incorrecta que lleva a que el cliente pierda un plazo de devolución), ¿quién es responsable?
+
+**Gravedad:** 🟡 **Media** — Implicaciones legales y de satisfacción del cliente.
+
+**Mitigación:**
+- EcoMarket debe asumir **responsabilidad total** por las respuestas del sistema, ya que es su herramienta.
+- Mantener **logs completos** de cada interacción para poder auditar y corregir errores.
+- Implementar un **proceso de apelación** donde el cliente pueda disputar una respuesta del sistema.
+- Incluir *disclaimers* cuando sea apropiado: *"Esta información es proporcionada por nuestro asistente automatizado. Para confirmación oficial, puedes contactar a nuestro equipo en [email]."*
+
+---
+
+## 4. Matriz de Riesgos y Mitigación
+
+| Riesgo | Probabilidad | Impacto | Nivel | Estrategia de Mitigación |
+|---|---|---|---|---|
+| **Alucinaciones** | Media | Alto | 🔴 Crítico | RAG + validación de salida + instrucciones explícitas en prompt |
+| **Privacidad de datos** | Baja (con medidas) | Muy Alto | 🔴 Crítico | Anonimización + cifrado + control de acceso + no PII en fine-tuning |
+| **Sesgo en respuestas** | Media | Medio | 🟡 Significativo | Auditorías periódicas + diseño de prompts equitativos + pruebas de sesgo |
+| **Impacto laboral** | Alta | Medio | 🟡 Significativo | Reskilling + nuevos roles + comunicación transparente |
+| **Falta de transparencia** | Media | Medio | 🟡 Significativo | Identificación clara como IA + opción de escalar siempre disponible |
+| **Responsabilidad por errores** | Baja | Alto | 🟡 Significativo | Logs completos + proceso de apelación + disclaimers |
+| **Fallo técnico del sistema** | Baja | Alto | 🟡 Significativo | Sistema de fallback a agentes humanos + monitoreo 24/7 |
+| **Dependencia de proveedor (vendor lock-in)** | Media | Medio | 🟢 Moderado | Arquitectura modular que permite cambiar de LLM + abstracción de API |
+| **Datos de BD desactualizados** | Media | Medio | 🟢 Moderado | Sincronización frecuente + timestamps de última actualización en respuestas |
+
+---
+
+## 5. Conclusión
+
+La solución propuesta ofrece beneficios significativos para EcoMarket, pero su implementación responsable requiere una gestión proactiva de los riesgos identificados. Los riesgos no deben ser razón para no implementar la solución, sino para hacerlo **con las salvaguardas adecuadas**.
+
+Las tres prioridades de mitigación son:
+
+1. **Prevenir alucinaciones** mediante la arquitectura RAG y validación de respuestas.
+2. **Proteger la privacidad** de los datos de los clientes con medidas técnicas y organizativas robustas.
+3. **Empoderar a los agentes humanos** posicionando la IA como herramienta de apoyo, no de reemplazo.
+
+Con estas medidas, EcoMarket puede mejorar drásticamente su servicio al cliente manteniendo sus valores de sostenibilidad y responsabilidad social, extendidos ahora al ámbito tecnológico.

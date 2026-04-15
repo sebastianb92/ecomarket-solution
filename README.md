@@ -23,11 +23,11 @@ ecomarket-solution/
 ├── prompts/
 │   ├── order_status_prompt.txt
 │   ├── return_policy_prompt.txt
-│   └── system_prompt.txt
+│   └── system_prompts.txt
 │
 ├── data/
 │   ├── orders_database.txt
-│   └── policies.txt
+│   └── return_policy.txt
 │
 ├── notebooks/
 │   └── EcoMarket_AI_Solution.ipynb
@@ -92,7 +92,7 @@ Escenarios disponibles:
 
 **Archivos utilizados:**
 - `prompts/return_policy_prompt.txt`
-- `data/policies.txt`
+- `data/return_policy.txt`
 
 ---
 
